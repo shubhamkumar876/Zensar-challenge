@@ -1,0 +1,26 @@
+<div class="detail-section">
+    <div class="container-fluid">
+        
+       <img src="{{ user.Image }}" class="detail-img">
+
+       <h3>{{ user.name }}</h3>
+      
+       <button *ngIf="flag" (click)="addTomyDB(user)" class="btn btn-primary btn-sm">Add to myDB</button>
+
+       <hr>
+       <h4>User Details</h4>
+       <p>User Id: {{ user.id }}</p>
+       <p>Name:<input class="form-control" style="width: 35%;" placeholder="{{ user.name }}" type="text" name="name" [(ngModel)]="profileService.name"> 
+           </p>
+        <p  *ngIf="!flag" >Image Url:<input class="form-control" style="width: 35%;" placeholder="{{ user.Image }}" type="text" name="Image" [(ngModel)]="profileService.Image"> 
+           </p>
+    
+    </div>
+
+    <div style="margin-top:0.5cm;">
+        <button *ngIf="!flag" (click)="updateInmyDb(user)" class="btn btn-success" style="margin-left: 0.3cm;">Update in myDB</button>
+        <button *ngIf="!flag" (click)="deletefrommyDB(user.id)" class="btn btn-danger" style="margin-left: 0.3cm;">Delete from myDB</button>
+    </div>
+
+    <a  (click)="profileService.reset()" routerLink="/user" class="mt-5"> << Back to Users List</a>
+</div>

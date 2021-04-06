@@ -1,0 +1,62 @@
+
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!--loop over the collection of products-->
+                <div *ngFor="let temp of users | filter:profileService.filter" class="col-md-3">
+
+                    <div class="card border-light mb-3" style="min-height: 33rem;">
+                        <a  (click)="profileService.forDetails(temp)" routerLink="/user-detail/{{ temp.id }}">
+                            <img src="{{ temp.Image }}" class="img-responsive" height="100">
+                        </a> 
+                        
+                        
+                        <div>
+                            <a routerLink="/user-detail/{{ temp.id }}">
+                                <h1>{{ temp.name }}</h1>
+                            </a>
+                            <div>
+                        <button (click)="addToMydb(temp)" class="btn btn-primary">Add to myDB</button>   
+                        
+                    </div>
+                    
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!--if products empty then display a message-->
+                <div *ngIf="users?.length == 0" class="alert alert-warning col-md-12" role="alert">
+                    No user found!!!!!!!!!!!
+                </div>
+
+            </div>
+
+            <!--begin footer-->
+            <div class="footer-pagination">
+                <div class="row">
+                    <div class="col-md-6"></div>
+
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-9" style="padding-left: 30%">
+                                
+                                
+
+                            </div>
+
+                            
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--end footer-->
+
+        </div>
+    </div>
+</div>
